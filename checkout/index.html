@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Checkout</title>
+	<script type="module" src="http://localhost:7071/checkout/build/checkout.esm.js"></script>
+	<script nomodule src="http://localhost:7071/checkout/build/checkout.js"></script>
+	<link href="http://localhost:7071/checkout/build/checkout.css" rel="stylesheet">
+	<script>
+		query = parseQuery(location.search)
+		function parseQuery(queryString) {
+		var result = {}
+		var pairs = (queryString[0] === "?" ? queryString.substr(1) : queryString).split("&")
+		for (var i = 0; i < pairs.length; i++) {
+			var pair = pairs[i].split("=")
+			const property = decodeURIComponent(pair[0])
+			const value = JSON.parse(decodeURIComponent(pair[1] || ""))
+			if (result.hasOwnProperty(property)) {
+				const before = result[property]
+				if (Array.isArray(before))
+					result[property].push(value)
+				else
+					result[property] = [ before, value ]
+			} else
+				result[property] = value
+		}
+		return result
+	}
+	console.log("query", query)
+	</script>
+</head>
+<body>
+	<header><h1>Checkout</h1></header>
+	<main>
+		<form action="done" method="get">
+			<ct-checkout currency="SEK" token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjcwNzEiLCJpYXQiOjE1NTkxOTg0MDM1NjgsImF1ZCI6InB1YmxpYyIsInN1YiI6ImxoSlJoeHhNIiwibWFzaCI6Ik5uUVpjb2ZhQkJma2QzNEltalJMaF9PbEU5N2FScXJtRTJZMURkRGczTS00ZThSbjA4MzJ5Q1JtLUQzNUtUUlcwNWtWTE9fTHRpRjNFbTVoVXhtLVZIa2lPaUkyWW1SNlkySk9UbkpXUm5sRVozbE1RakpMYTFGMU9VVWlMQ0p0WlhKamFHRnVkQ0k2TlgwIiwiY2FyZCI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSm9kSFJ3T2k4dmJHOWpZV3hvYjNOME9qY3dPRElpTENKcFlYUWlPakUxTlRrd05qazJOalV6TWpZc0ltRjFaQ0k2SW5CMVlteHBZeUlzSW5OMVlpSTZJbGswYTBGbmVqRlFJaXdpWTJGeVpESWlPaUpuTkZCb1NHeGlRM0JQZDBac2JUbHdYMVJTYWpSeGVEbE1hREJpYlVKNmNYQjRPVWxZZHprM2RXbGlNa2N0TWpCUVpqUmpNa1ZpVVdSbE16VkdNRW80VW1kNmJ6ZzFWVUprT1U1Q2N6ZDFNMlUwT1doYVJFVjNUVlJaTUV4RFNuSmFXR3RwVDJsSk0wMUVaekJhUkdocVQxUkZNMWxxYkdsYVZGRXhUakpGTWsweVJUQlpiVkpyV1hwRk1VNTZZM3BOUTBvNUluMC5lV05ZZWVTOUpEU3RtbWxySER5Mm55MUtfOGtBUE1QVzh6Q0E1bzJZbjhjIn0.EmUChc0dghm5XzMgEe8JrriM3wpdJvBXYbJ0Afz47wE"></ct-checkout>
+		</form>
+	</main>
+	<script>
+		const checkout = document.body.querySelector("body > main > form > ct-checkout")
+		const items = JSON.stringify(query.item)
+		checkout.setAttribute("items", items)
+	</script>
+</body>
+</html>
