@@ -1,2 +1,2 @@
 # checkout-demo-shop
-Simple demo webshop for the Certitrade Checkout.
+Simple demo webshop for the PayFunc Checkout.
