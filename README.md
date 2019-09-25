@@ -1,2 +1,2 @@
-# checkout-demo-shop
-Simple demo webshop for the PayFunc Checkout.
+# PayFunc Checkout Example
+Simple example webshop for the PayFunc Checkout.
