@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Checkout</title>
 	<script src="https://api.payfunc.com/ui/checkout/payfunc-checkout.js"></script>
-	<link href="https://theme.payfunc.com/ct-light/index.css" rel="stylesheet">	<script>
+	<link href="http://localhost:9080/dark/index.css" rel="stylesheet">	<script>
 		query = parseQuery(location.search)
 		function parseQuery(queryString) {
 		var result = {}
@@ -29,7 +29,7 @@
 	console.log("query", query)
 	</script>
 </head>
-<body>
+<body style="width: 100%; max-width: 20em; margin-left: auto; margin-right: auto;">
 	<header><h1>Checkout</h1></header>
 	<main>
 		<form action="../done" method="get">
