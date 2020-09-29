@@ -10,6 +10,21 @@
 	<link href="https://theme.payfunc.com/light/index.css" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://brand.payfunc.com/icon/apple-icon.png">
 	<link rel="icon" type="image/x-icon" href="https://brand.payfunc.com/icon/favicon.ico">
+	<style>
+		body>aside {
+			position: absolute;
+			right: 1em;
+			bottom: 1em;
+			background-color: rgb(var(--smoothly-warning-color), .4);
+			padding: 0 1em;
+			border: solid 1px rgb(var(--smoothly-warning-color), .8);
+			border-radius: 1em;
+		}
+
+		body>aside>dl>dt {
+			font-weight: 600;
+		}
+	</style>
 	<script>
 		query = parseQuery(location.search)
 		function parseQuery(queryString) {
@@ -40,6 +55,16 @@
 			<payfunc-checkout currency="SEK" api-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2FwaS5wYXlmdW5jLmNvbSIsImlhdCI6MTYwMTMwMjczMzk3Miwic3ViIjoiZGVtb2RlbW8iLCJhZ2VudCI6ImRlbW8iLCJ0eXBlIjoiZGVtbyIsIm5hbWUiOiJEZW1vIE1lcmNoYW50IiwibWFzaCI6ImxkS2xaZFl5cWxMcWJDNzR3N3pkYlNEOVFzRnFsdFBJY3MwSkdrQ2dDZWxpY1VZOWdFNXZ4TjQ5TTlkWDA4WV9YYk9nNmQ1VlV6eXlGRU01NDZqeS1ua2lPaUkyWW1SNlkySk9UbkpXUm5sRVozbE1RakpMYTFGMU9VVWlMQ0p0WlhKamFHRnVkQ0k2TlgwIiwiY2FyZCI6eyJpZCI6ImRlbW8iLCJuYW1lIjoiZGVtbyIsInVybCI6Imh0dHBzOi8vYXBpLmNhcmRmdW5jLmNvbSIsImRlc2NyaXB0b3IiOiJ0ZXN0IHRyYW5zYWN0aW9uIiwiY291bnRyeSI6IlNFIiwiYWNxdWlyZXIiOiJWZnJuY2tIdUxMSWZLQ3BWSmFVUzNxWG9wZjJsbU14MWh0TXM1bkxlb2wxcWRwNFgzN1NmZlROblZVRXVUOVdWajRQQ0g2cEloeUstYVNnbG5DM2NIbTBpTENKclpYa2lPaUl6Tm1VM05HRTJPUzAzWm1WbExUUmhNemN0WW1Oa09TMDJZVEUwTWpJd01qaG1aak1pTENKaWFXNGlPbnNpYldGemRHVnlZMkZ5WkNJNklqVXlOalUzTVNJc0luWnBjMkVpT2lJME16Z3pNRGtpZlgwIiwibWlkIjoiMTIzNCIsIm1jYyI6IjEyMzQiLCJlbXYzZCI6IlBlV3ZybThaNUFhRFpEa0R2RTM3bnh3SFF1bTBjXzVWY2J0ZW9lQk05OXZJNlRsenlYb250LU1zMHMzR3BOYzB3UUNzZkNfWTZxYTR4enliQmlOb3MyVjVJam9pYm04dGEyVjVJbjAifSwidXJsIjoiaHR0cDovL3d3dy5leGFtcGxlLmNvbS8iLCJ0ZXJtcyI6Imh0dHA6Ly93d3cuZXhhbXBsZS5jb20iLCJsb2dvdHlwZSI6Imh0dHBzOi8vYnJhbmQucGF5ZnVuYy5jb20vbG9nby9wbmctOTAvcGF5ZnVuYy1sMDgtOTAucG5nIiwiYXVkIjoicHVibGljIn0.T7xbYz6FzWB3fEyzoPootWyyXJXwI8cpoUk3XQmL4hE" features="customer"></payfunc-checkout>
 		</form>
 	</main>
+	<aside>
+		<dl>
+			<dt>Maria Mullbär</dt>
+			<dd>198411136115</dd>
+			<dd>16993</dd>
+			<dt>Tom Johansson</dt>
+			<dd>198506086118</dd>
+			<dd>16001</dd>
+		</dl>
+	</aside>
 	<script>
 		const checkout = document.body.querySelector("body > main > form > payfunc-checkout")
 		const items = JSON.stringify(query.item)
