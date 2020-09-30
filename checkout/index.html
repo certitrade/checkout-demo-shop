@@ -33,7 +33,9 @@
 		for (var i = 0; i < pairs.length; i++) {
 			var pair = pairs[i].split("=")
 			const property = decodeURIComponent(pair[0])
-			const value = JSON.parse(decodeURIComponent(pair[1] || "").replace("+", " "))
+			const valueString = decodeURIComponent(pair[1] || "").replace(/\+/gi, " ")
+			console.log("property", property, valueString)
+			const value = JSON.parse(valueString)
 			if (result.hasOwnProperty(property)) {
 				const before = result[property]
 				if (Array.isArray(before))
